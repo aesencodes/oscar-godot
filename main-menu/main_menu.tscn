@@ -49,3 +49,4 @@ offset_bottom = 502.0
 
 [connection signal="pressed" from="PlayButton2" to="." method="_on_play_button_2_pressed"]
 [connection signal="pressed" from="SettingsButton2" to="." method="_on_settings_button_2_pressed"]
+[connection signal="pressed" from="QuitButton2" to="." method="_on_quit_button_2_pressed"]
