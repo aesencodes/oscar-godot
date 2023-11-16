@@ -1,0 +1,127 @@
+[gd_scene load_steps=15 format=3 uid="uid://dytjeykgpgkcj"]
+
+[ext_resource type="Texture2D" uid="uid://jrothnmpmlrh" path="res://assets/character/bear/bear.png" id="1_1dqu1"]
+[ext_resource type="Script" path="res://character_animation/enemy/bear/bear.gd" id="1_3mc02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odli2"]
+atlas = ExtResource("1_1dqu1")
+region = Rect2(14, 61, 78, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d8ni"]
+atlas = ExtResource("1_1dqu1")
+region = Rect2(92, 61, 78, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvasd"]
+atlas = ExtResource("1_1dqu1")
+region = Rect2(170, 61, 78, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwrva"]
+atlas = ExtResource("1_1dqu1")
+region = Rect2(248, 61, 78, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq4tn"]
+atlas = ExtResource("1_1dqu1")
+region = Rect2(326, 61, 78, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk2fb"]
+atlas = ExtResource("1_1dqu1")
+region = Rect2(404, 61, 78, 61)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uglvk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odli2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d8ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvasd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwrva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq4tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk2fb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1itx"]
+size = Vector2(137, 85)
+
+[sub_resource type="Animation" id="Animation_paeeh"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_cbbsj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fg4i"]
+_data = {
+"RESET": SubResource("Animation_cbbsj"),
+"walk": SubResource("Animation_paeeh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2qrx"]
+size = Vector2(143, 92)
+
+[node name="bear" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 27
+script = ExtResource("1_3mc02")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(1.78205, 1.78333)
+sprite_frames = SubResource("SpriteFrames_uglvk")
+animation = &"walk"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 9.5)
+shape = SubResource("RectangleShape2D_y1itx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3fg4i")
+}
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(2.5, 10)
+shape = SubResource("RectangleShape2D_r2qrx")
+
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

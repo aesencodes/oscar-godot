@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qmtfdqdu2kpg"
-path="res://.godot/imported/run-sheet.png-2a86a737d422bcbd384f869cc464f23f.ctex"
+uid="uid://m6c1q3fq1vjn"
+path="res://.godot/imported/0_Goblin_Idle_016.png-0c368954323b7fcd7a2e87b356b6a6c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/goblin/run/run-sheet.png"
-dest_files=["res://.godot/imported/run-sheet.png-2a86a737d422bcbd384f869cc464f23f.ctex"]
+source_file="res://assets/character/goblin/Idle/0_Goblin_Idle_016.png"
+dest_files=["res://.godot/imported/0_Goblin_Idle_016.png-0c368954323b7fcd7a2e87b356b6a6c3.ctex"]
 
 [params]
 
