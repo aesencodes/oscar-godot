@@ -4,7 +4,7 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 const JUMP_MAX = 2
 
-var climbing = false
+@export var climbing = false
 var jump_count = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

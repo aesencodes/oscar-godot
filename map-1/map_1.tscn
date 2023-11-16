@@ -1,11 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://ndnaj6jlwnwl"]
+[gd_scene load_steps=23 format=3 uid="uid://ndnaj6jlwnwl"]
 
 [ext_resource type="Texture2D" uid="uid://cuboosgi6o38x" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="1_q4pn2"]
 [ext_resource type="Texture2D" uid="uid://b8anyqtoghiwa" path="res://assets/tileset/map-1-and-2/background/background1.png" id="1_wodfm"]
 [ext_resource type="Texture2D" uid="uid://cdvcukjtmamph" path="res://assets/tileset/map-1-and-2/tiles/stair.png" id="3_o8x4d"]
 [ext_resource type="Texture2D" uid="uid://cupmn2lap0by" path="res://assets/tileset/map-1-and-2/background/bg-objects/bg_cloud4.png" id="4_8gdky"]
-[ext_resource type="PackedScene" uid="uid://u4bpk57kdfk7" path="res://character-animation/oscar/oscar.tscn" id="5_l40ll"]
+[ext_resource type="PackedScene" uid="uid://u4bpk57kdfk7" path="res://character_animation/oscar/oscar.tscn" id="5_l40ll"]
 [ext_resource type="Script" path="res://map-1/ladder.gd" id="6_u4fhp"]
+[ext_resource type="PackedScene" uid="uid://clptfl2l0h8vk" path="res://character_animation/enemy/small_bee/small_bee.tscn" id="7_w4db8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ucxqy"]
 texture = ExtResource("1_q4pn2")
@@ -10037,6 +10038,9 @@ script = ExtResource("6_u4fhp")
 [node name="ladderCol" type="CollisionShape2D" parent="ladder"]
 position = Vector2(1072, 586)
 shape = SubResource("RectangleShape2D_bl5vn")
+
+[node name="small_bee" parent="." instance=ExtResource("7_w4db8")]
+position = Vector2(547, 557)
 
 [connection signal="body_entered" from="ladder" to="ladder" method="_on_body_entered"]
 [connection signal="body_exited" from="ladder" to="ladder" method="_on_body_exited"]
