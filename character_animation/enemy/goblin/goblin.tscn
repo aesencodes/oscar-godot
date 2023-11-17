@@ -184,10 +184,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tymn"]
-size = Vector2(153, 213)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdf7p"]
-size = Vector2(163, 224)
+size = Vector2(27, 36)
 
 [sub_resource type="Animation" id="Animation_ch8vw"]
 length = 0.001
@@ -227,32 +224,37 @@ _data = {
 "walk": SubResource("Animation_rv3kf")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdf7p"]
+size = Vector2(30, 38)
+
 [node name="goblin" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_mjmpt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3, 2)
-scale = Vector2(0.362222, 0.393889)
+position = Vector2(-3.8147e-06, 7.62939e-06)
+scale = Vector2(0.06, 0.0645492)
 sprite_frames = SubResource("SpriteFrames_bv8rc")
 animation = &"walk"
 autoplay = "walk"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, 13.5)
+position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_3tymn")
-
-[node name="HitArea" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 29
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
-position = Vector2(3.5, 14)
-shape = SubResource("RectangleShape2D_bdf7p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_nv2nd")
 }
+
+[node name="HitArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 27
+
+[node name="ShapeHitBody" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_bdf7p")
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

@@ -13,7 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation = get_node("AnimationPlayer")
 
 func _ready():
-	animation.play("idle")
+	pass
 
 func _physics_process(delta):
 	if climbing == false:
@@ -32,11 +32,13 @@ func _physics_process(delta):
 
 	# Reset JUMP_COUNT
 	if is_on_floor() and jump_count != 0:
+		velocity.y += gravity * delta
 		jump_count = 0
 
 	if jump_count < JUMP_MAX:
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = JUMP_VELOCITY
+			animation.play("jump")
 			jump_count += 1
 
 	# Get the input direction and handle the movement/deceleration.
@@ -50,16 +52,18 @@ func _physics_process(delta):
 
 	if direction:
 		velocity.x = direction * SPEED
-		if velocity.y == 0:
+		if velocity.y > 0:
 			animation.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if velocity.y == 0:
 			animation.play("idle")
-
-	move_and_slide()
+		if velocity.y > 0:
+			animation.play("idle")
 
 	# Check if character is on floor after jump or double jump, and play idle animation
 	if is_on_floor() and (animation.current_animation == "jump" or animation.current_animation == "launch"):
-		animation.play("idle")
+		animation.play("jump")
+		
+	move_and_slide()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ndnaj6jlwnwl"]
+[gd_scene load_steps=26 format=3 uid="uid://ndnaj6jlwnwl"]
 
 [ext_resource type="Texture2D" uid="uid://cuboosgi6o38x" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="1_q4pn2"]
 [ext_resource type="Texture2D" uid="uid://b8anyqtoghiwa" path="res://assets/tileset/map-1-and-2/background/background1.png" id="1_wodfm"]
@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cupmn2lap0by" path="res://assets/tileset/map-1-and-2/background/bg-objects/bg_cloud4.png" id="4_8gdky"]
 [ext_resource type="PackedScene" uid="uid://u4bpk57kdfk7" path="res://character_animation/oscar/oscar.tscn" id="5_l40ll"]
 [ext_resource type="Script" path="res://map-1/ladder.gd" id="6_u4fhp"]
-[ext_resource type="PackedScene" uid="uid://clptfl2l0h8vk" path="res://character_animation/enemy/small_bee/small_bee.tscn" id="7_w4db8"]
+[ext_resource type="PackedScene" uid="uid://ewm3he05ncb8" path="res://character_animation/enemy/boar/boar.tscn" id="7_rj0r2"]
+[ext_resource type="PackedScene" uid="uid://br1iwvck1sa0t" path="res://map-1/bumper_enemy/bumper.tscn" id="8_3fnuh"]
+[ext_resource type="PackedScene" uid="uid://0kowtb0y3gcm" path="res://character_animation/enemy/bee/bee.tscn" id="9_6s5bs"]
+[ext_resource type="PackedScene" uid="uid://chhc6xe7el5a1" path="res://character_animation/enemy/goblin/goblin.tscn" id="10_efaef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ucxqy"]
 texture = ExtResource("1_q4pn2")
@@ -10039,8 +10042,38 @@ script = ExtResource("6_u4fhp")
 position = Vector2(1072, 586)
 shape = SubResource("RectangleShape2D_bl5vn")
 
-[node name="small_bee" parent="." instance=ExtResource("7_w4db8")]
-position = Vector2(547, 557)
+[node name="Boar" parent="." instance=ExtResource("7_rj0r2")]
+position = Vector2(893, 474)
+
+[node name="Bumper_boar" type="Node2D" parent="."]
+
+[node name="bumper" parent="Bumper_boar" instance=ExtResource("8_3fnuh")]
+position = Vector2(706, 471)
+
+[node name="bumper2" parent="Bumper_boar" instance=ExtResource("8_3fnuh")]
+position = Vector2(1147, 473)
+
+[node name="Bee" parent="." instance=ExtResource("9_6s5bs")]
+position = Vector2(1665, 516)
+
+[node name="bumper_bee" type="Node2D" parent="."]
+
+[node name="bumper" parent="bumper_bee" instance=ExtResource("8_3fnuh")]
+position = Vector2(1480, 525)
+
+[node name="bumper2" parent="bumper_bee" instance=ExtResource("8_3fnuh")]
+position = Vector2(1830, 525)
+
+[node name="goblin" parent="." instance=ExtResource("10_efaef")]
+position = Vector2(1325, 663)
+
+[node name="Bumper_goblin" type="Node2D" parent="."]
+position = Vector2(992, 669)
+
+[node name="bumper3" parent="Bumper_goblin" instance=ExtResource("8_3fnuh")]
+
+[node name="bumper4" parent="Bumper_goblin" instance=ExtResource("8_3fnuh")]
+position = Vector2(427, 1)
 
 [connection signal="body_entered" from="ladder" to="ladder" method="_on_body_entered"]
 [connection signal="body_exited" from="ladder" to="ladder" method="_on_body_exited"]

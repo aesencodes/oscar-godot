@@ -20,5 +20,6 @@ func _process(delta):
 		
 
 func _on_hitbox_body_entered(body):
-	if body.name == "Player":
+	if body.name == "oscar":
+		print("boar_oscar")
 		get_tree().reload_current_scene()

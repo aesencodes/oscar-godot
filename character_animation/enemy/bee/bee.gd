@@ -7,7 +7,6 @@ var movespeed = 100
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	velocity.x = movespeed
@@ -17,11 +16,15 @@ func _process(delta):
 		movespeed = -movespeed
 		
 	if movespeed > 0 :
-		$AnimatedSprite2D.flip_h = false
-	else:
 		$AnimatedSprite2D.flip_h = true
-		
+	else:
+		$AnimatedSprite2D.flip_h = false
 
-func _on_hit_area_body_entered(body):
+	move_and_slide()
+	
+
+
+func _on_hitbody_body_entered(body):
+	print("Body entered - Bee: " + body.name)
 	if body.name == "oscar":
 		get_tree().reload_current_scene()
