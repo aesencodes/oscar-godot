@@ -3,9 +3,15 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 const JUMP_MAX = 2
+const DeathThreshold = 790
 
 @export var climbing = false
 var jump_count = 0
+
+var LIVE = 9
+var check = true
+
+var initial_position = Vector2()  # Simpan posisi awal pemain
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -13,7 +19,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation = get_node("AnimationPlayer")
 
 func _ready():
-	pass
+	initial_position = position 
 
 func _physics_process(delta):
 	if climbing == false:
@@ -40,7 +46,18 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 			animation.play("jump")
 			jump_count += 1
+	
+		if position.y > DeathThreshold:
+			animation.stop()
+			animation.play("death")
+			print("Death")
+			print(initial_position)
+			LIVE = LIVE - 1
+			print("NYAWA: " + str(LIVE))
+			await get_tree().create_timer(0.5).timeout
+			position = initial_position
 
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -49,7 +66,19 @@ func _physics_process(delta):
 		get_node("AnimatedSprite2D").flip_h = true
 	elif direction == 1:
 		get_node("AnimatedSprite2D").flip_h = false
-
+	
+	if position.y < 790:
+		if direction:
+			print("satu")
+			velocity.x = direction * SPEED
+			if velocity.y == 0:
+				print("dua")
+				animation.play("walk")
+		else:
+			print("tiga")
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	
 	if direction:
 		velocity.x = direction * SPEED
 		if velocity.y > 0:
