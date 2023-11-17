@@ -20,10 +20,10 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	elif climbing == true:
 		velocity.y = 0
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_pressed("ui_up"):
 			velocity.y = -SPEED
 			animation.play("climb")
-		elif Input.is_action_just_pressed("ui_down"):
+		elif Input.is_action_pressed("ui_down"):
 			velocity.y = SPEED
 			animation.play("climb")
 	else:

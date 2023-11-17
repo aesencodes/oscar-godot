@@ -10036,6 +10036,8 @@ shape = SubResource("RectangleShape2D_dkfla")
 position = Vector2(91, 647)
 
 [node name="ladder" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 3
 script = ExtResource("6_u4fhp")
 
 [node name="ladderCol" type="CollisionShape2D" parent="ladder"]
