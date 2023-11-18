@@ -135,8 +135,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsykn"]
-size = Vector2(45, 30)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8crqq"]
+radius = 13.5
+height = 28.0
 
 [sub_resource type="Animation" id="Animation_j2ixw"]
 length = 0.5
@@ -205,8 +206,9 @@ _data = {
 "Walk": SubResource("Animation_c4sjh")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_odld3"]
-size = Vector2(49, 35)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwqk4"]
+radius = 16.5
+height = 33.0
 
 [node name="Boar" type="CharacterBody2D"]
 collision_layer = 4
@@ -221,7 +223,7 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 3)
-shape = SubResource("RectangleShape2D_bsykn")
+shape = SubResource("CapsuleShape2D_8crqq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -234,6 +236,6 @@ collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1.5, 3.5)
-shape = SubResource("RectangleShape2D_odld3")
+shape = SubResource("CapsuleShape2D_vwqk4")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

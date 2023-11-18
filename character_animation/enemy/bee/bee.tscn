@@ -73,8 +73,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c38xa"]
-size = Vector2(59.5, 44)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0f8wy"]
+radius = 15.5
+height = 31.0
 
 [sub_resource type="Animation" id="Animation_3uft2"]
 resource_name = "Attack"
@@ -133,7 +134,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dwwq"]
-radius = 40.4969
+radius = 15.8114
 
 [node name="Bee" type="CharacterBody2D"]
 collision_layer = 4
@@ -148,8 +149,8 @@ animation = &"Attack"
 autoplay = "Fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.25, 3)
-shape = SubResource("RectangleShape2D_c38xa")
+position = Vector2(4.5, -3.5)
+shape = SubResource("CapsuleShape2D_0f8wy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fly"
@@ -162,7 +163,7 @@ collision_layer = 4
 collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbody"]
-position = Vector2(-1, 3)
+position = Vector2(3, -3)
 shape = SubResource("CircleShape2D_5dwwq")
 
 [connection signal="body_entered" from="Hitbody" to="." method="_on_hitbody_body_entered"]

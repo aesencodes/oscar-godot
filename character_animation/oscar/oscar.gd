@@ -40,6 +40,7 @@ func _physics_process(delta):
 	if is_on_floor() and jump_count != 0:
 		velocity.y += gravity * delta
 		jump_count = 0
+		
 
 	if jump_count < JUMP_MAX:
 		if Input.is_action_just_pressed("ui_accept"):
@@ -48,14 +49,15 @@ func _physics_process(delta):
 			jump_count += 1
 	
 		if position.y > DeathThreshold:
-			animation.stop()
-			animation.play("death")
-			print("Death")
+			animation.stop()  # Stop the current animation
+			animation.play("death")  # Play the death animation
 			print(initial_position)
 			LIVE = LIVE - 1
-			print("NYAWA: " + str(LIVE))
 			await get_tree().create_timer(0.5).timeout
 			position = initial_position
+			animation.play("idle")  # Play the idle animation or handle it appropriately
+
+
 
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -69,15 +71,11 @@ func _physics_process(delta):
 	
 	if position.y < 790:
 		if direction:
-			print("satu")
 			velocity.x = direction * SPEED
 			if velocity.y == 0:
-				print("dua")
 				animation.play("walk")
 		else:
-			print("tiga")
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		
 	
 	if direction:
 		velocity.x = direction * SPEED
@@ -89,10 +87,5 @@ func _physics_process(delta):
 			animation.play("idle")
 		if velocity.y > 0:
 			animation.play("idle")
-
-	# Check if character is on floor after jump or double jump, and play idle animation
-	if is_on_floor() and (animation.current_animation == "jump" or animation.current_animation == "launch"):
-		animation.play("jump")
 		
 	move_and_slide()
-
