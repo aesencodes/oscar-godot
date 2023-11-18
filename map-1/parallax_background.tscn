@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfl5pj25sfykr"]
+
+[ext_resource type="Script" path="res://map-1/parallax_background.gd" id="1_32xl4"]
+[ext_resource type="Texture2D" uid="uid://b8anyqtoghiwa" path="res://assets/tileset/map-1-and-2/background/background1.png" id="1_64xge"]
+[ext_resource type="Texture2D" uid="uid://bqu8iysyd8uju" path="res://assets/tileset/map-1-and-2/background/Sky.png" id="2_qbxtv"]
+[ext_resource type="Texture2D" uid="uid://un75nahmeb7e" path="res://assets/tileset/map-1-and-2/background/Far-Mountains.png" id="3_wjyok"]
+[ext_resource type="Texture2D" uid="uid://bysavjf1kiijt" path="res://assets/tileset/map-1-and-2/background/Mountains.png" id="4_vft0m"]
+[ext_resource type="Texture2D" uid="uid://dby7tgkqgs34r" path="res://assets/tileset/map-1-and-2/background/Far-Forest.png" id="5_2ti4d"]
+[ext_resource type="Texture2D" uid="uid://c8g6dioj8gt45" path="res://assets/tileset/map-1-and-2/background/Forest.png" id="6_2h7ds"]
+[ext_resource type="Texture2D" uid="uid://cxlcrss7gs5ba" path="res://assets/tileset/map-1-and-2/background/Near-Forest-0.png" id="7_6u1l3"]
+[ext_resource type="Texture2D" uid="uid://l8y0f3tk40kk" path="res://assets/tileset/map-1-and-2/background/Near-Forest-2.png" id="8_d7nx7"]
+[ext_resource type="Texture2D" uid="uid://d0qerol1d1wo8" path="res://assets/tileset/map-1-and-2/background/Near-Forest.png" id="9_1s8ts"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_32xl4")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1366, 2.08165e-12)
+
+[node name="Background1" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(683, 384)
+texture = ExtResource("1_64xge")
+
+[node name="Sky" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(240, 192)
+texture = ExtResource("2_qbxtv")
+
+[node name="Sky2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(720, 192)
+texture = ExtResource("2_qbxtv")
+
+[node name="Sky3" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(1126, 192)
+texture = ExtResource("2_qbxtv")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1366, 2.08165e-12)
+
+[node name="Far-mountains" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(240, 297)
+texture = ExtResource("3_wjyok")
+
+[node name="Far-mountains2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(719, 299)
+texture = ExtResource("3_wjyok")
+
+[node name="Far-mountains3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1126, 301)
+texture = ExtResource("3_wjyok")
+
+[node name="Mountains" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(240, 331)
+texture = ExtResource("4_vft0m")
+
+[node name="Mountains2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(719, 333)
+texture = ExtResource("4_vft0m")
+
+[node name="Mountains3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1126, 343)
+texture = ExtResource("4_vft0m")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1366, 2.08165e-12)
+
+[node name="Far-forest" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(240, 395)
+texture = ExtResource("5_2ti4d")
+
+[node name="Far-forest2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(715, 402)
+texture = ExtResource("5_2ti4d")
+
+[node name="Far-forest3" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(1126, 398)
+texture = ExtResource("5_2ti4d")
+
+[node name="Forest" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(240, 407)
+texture = ExtResource("6_2h7ds")
+
+[node name="Forest2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(714, 415)
+texture = ExtResource("6_2h7ds")
+
+[node name="Forest3" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(1126, 418)
+texture = ExtResource("6_2h7ds")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1366, 2.08165e-12)
+
+[node name="Near-forest-0" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(240, 435)
+texture = ExtResource("7_6u1l3")
+
+[node name="Near-forest-1" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(711, 445)
+texture = ExtResource("7_6u1l3")
+
+[node name="Near-forest-3" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(1126, 449)
+texture = ExtResource("7_6u1l3")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1366, 2.08165e-12)
+
+[node name="Near-forest-2" type="Sprite2D" parent="ParallaxLayer5"]
+position = Vector2(240, 495)
+texture = ExtResource("8_d7nx7")
+
+[node name="Near-forest-3" type="Sprite2D" parent="ParallaxLayer5"]
+position = Vector2(694, 496)
+texture = ExtResource("8_d7nx7")
+
+[node name="Near-forest-4" type="Sprite2D" parent="ParallaxLayer5"]
+position = Vector2(1126, 498)
+texture = ExtResource("8_d7nx7")
+
+[node name="Near-forest" type="Sprite2D" parent="ParallaxLayer5/Near-forest-4"]
+position = Vector2(-886, 78)
+texture = ExtResource("9_1s8ts")
+
+[node name="Near-forest2" type="Sprite2D" parent="ParallaxLayer5/Near-forest-4"]
+position = Vector2(-406, 78)
+texture = ExtResource("9_1s8ts")
+
+[node name="Near-forest3" type="Sprite2D" parent="ParallaxLayer5/Near-forest-4"]
+position = Vector2(0, 78)
+texture = ExtResource("9_1s8ts")

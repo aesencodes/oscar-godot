@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://ndnaj6jlwnwl"]
 
+[ext_resource type="PackedScene" uid="uid://cfl5pj25sfykr" path="res://map-1/parallax_background.tscn" id="1_j28ed"]
 [ext_resource type="Texture2D" uid="uid://cuboosgi6o38x" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="1_q4pn2"]
-[ext_resource type="Texture2D" uid="uid://b8anyqtoghiwa" path="res://assets/tileset/map-1-and-2/background/background1.png" id="1_wodfm"]
 [ext_resource type="Texture2D" uid="uid://cdvcukjtmamph" path="res://assets/tileset/map-1-and-2/tiles/stair.png" id="3_o8x4d"]
 [ext_resource type="Texture2D" uid="uid://cupmn2lap0by" path="res://assets/tileset/map-1-and-2/background/bg-objects/bg_cloud4.png" id="4_8gdky"]
 [ext_resource type="Texture2D" uid="uid://bxnwrabcuorj3" path="res://assets/tileset/map-1-and-2/trees/Dark-Tree.png" id="4_dl4js"]
@@ -58316,11 +58316,6 @@ size = Vector2(32, 250)
 
 [node name="map-1" type="Node2D"]
 
-[node name="Background1" type="Sprite2D" parent="."]
-position = Vector2(5711, 392)
-scale = Vector2(9.74015, 3)
-texture = ExtResource("1_wodfm")
-
 [node name="tiles" type="Node2D" parent="."]
 
 [node name="sec" type="TileMap" parent="tiles"]
@@ -58434,6 +58429,8 @@ position = Vector2(992, 669)
 
 [node name="bumper4" parent="Bumper_goblin" instance=ExtResource("8_3fnuh")]
 position = Vector2(427, 1)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_j28ed")]
 
 [connection signal="body_entered" from="ladder" to="ladder" method="_on_body_entered"]
 [connection signal="body_exited" from="ladder" to="ladder" method="_on_body_exited"]
