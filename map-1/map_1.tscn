@@ -58374,9 +58374,6 @@ shape = SubResource("RectangleShape2D_vsv6w")
 [node name="moving_platform" parent="." instance=ExtResource("15_fwuv8")]
 position = Vector2(3714, 431)
 
-[node name="moving_platform2" parent="." instance=ExtResource("15_fwuv8")]
-position = Vector2(6105, 645)
-
 [node name="oscar" parent="." instance=ExtResource("5_l40ll")]
 position = Vector2(91, 647)
 
