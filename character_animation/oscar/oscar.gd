@@ -49,16 +49,8 @@ func _physics_process(delta):
 			jump_count += 1
 	
 		if position.y > DeathThreshold:
-			animation.stop()  # Stop the current animation
-			animation.play("death")  # Play the death animation
-			print(initial_position)
-			LIVE = LIVE - 1
+			animation.play("death")
 			await get_tree().create_timer(0.5).timeout
-			position = initial_position
-			animation.play("idle")  # Play the idle animation or handle it appropriately
-
-
-
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -89,3 +81,9 @@ func _physics_process(delta):
 			animation.play("idle")
 		
 	move_and_slide()
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "death":
+		LIVE = LIVE - 1
+		position = initial_position
+		print("NYAWA: ", LIVE)
