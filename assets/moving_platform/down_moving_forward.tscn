@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb0eye4w5d7v6"]
+
+[ext_resource type="Texture2D" uid="uid://dyy4tf8jpfkyf" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="1_sorv6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4nm2"]
+size = Vector2(45.5, 17)
+
+[sub_resource type="Animation" id="Animation_7re6n"]
+resource_name = "move_left"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(0, 250), Vector2(0, 250), Vector2(2.08165e-12, 2.08165e-12), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_au5ml"]
+_data = {
+"move_left": SubResource("Animation_7re6n")
+}
+
+[node name="left_moving_forward" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(1.89631e-12, 22.2587)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = ExtResource("1_sorv6")
+region_enabled = true
+region_rect = Rect2(176, 232, 48, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0.75, 2.5)
+shape = SubResource("RectangleShape2D_n4nm2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D"]
+autoplay = "move_left"
+libraries = {
+"": SubResource("AnimationLibrary_au5ml")
+}
