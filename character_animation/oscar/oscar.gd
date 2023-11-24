@@ -3,10 +3,12 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 const JUMP_MAX = 2
-const DeathThreshold = 790
+const DeathThreshold = 794
 
 @export var climbing = false
 var jump_count = 0
+
+var death_enemy = false
 
 var LIVE = 9
 var check = true
@@ -19,9 +21,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation = get_node("AnimationPlayer")
 
 func _ready():
-	initial_position = position 
+	initial_position = position
+	var boar = get_node("../Boar")
+	boar.custom.connect(death)
+	print(initial_position)
+	
+func death():
+	death_enemy = true
 
 func _physics_process(delta):
+	print(death_enemy)
 	if climbing == false:
 		velocity.y += gravity * delta
 	elif climbing == true:
@@ -48,7 +57,7 @@ func _physics_process(delta):
 			animation.play("jump")
 			jump_count += 1
 	
-		if position.y > DeathThreshold:
+		if position.y > DeathThreshold or death_enemy:
 			animation.play("death")
 			await get_tree().create_timer(0.5).timeout
 	
@@ -61,7 +70,7 @@ func _physics_process(delta):
 	elif direction == 1:
 		get_node("AnimatedSprite2D").flip_h = false
 	
-	if position.y < 790:
+	if position.y < DeathThreshold:
 		if direction:
 			velocity.x = direction * SPEED
 			if velocity.y == 0:
@@ -83,7 +92,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_animation_player_animation_finished(anim_name):
+	print("memekx")
 	if anim_name == "death":
+		print("memek")
 		LIVE = LIVE - 1
+		death_enemy = false
 		position = initial_position
 		print("NYAWA: ", LIVE)

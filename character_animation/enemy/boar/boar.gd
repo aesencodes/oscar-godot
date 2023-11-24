@@ -3,6 +3,8 @@ extends CharacterBody2D
 var movespeed = 100
 @onready var anim = get_node("AnimationPlayer")
 
+signal custom
+
 func _ready():
 	pass
 		
@@ -21,5 +23,4 @@ func _process(delta):
 
 func _on_hitbox_body_entered(body):
 	if body.name == "oscar":
-		print("boar_oscar")
-		get_tree().reload_current_scene()
+		emit_signal("custom")

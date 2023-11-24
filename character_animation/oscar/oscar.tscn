@@ -439,3 +439,5 @@ limit_left = 0
 libraries = {
 "": SubResource("AnimationLibrary_cx536")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

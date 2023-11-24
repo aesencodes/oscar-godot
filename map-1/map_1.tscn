@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://ndnaj6jlwnwl"]
+[gd_scene load_steps=49 format=3 uid="uid://ndnaj6jlwnwl"]
 
 [ext_resource type="PackedScene" uid="uid://cfl5pj25sfykr" path="res://map-1/parallax_background.tscn" id="1_j28ed"]
 [ext_resource type="Texture2D" uid="uid://dyy4tf8jpfkyf" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="1_q4pn2"]
@@ -58351,6 +58351,20 @@ size = Vector2(20, 264)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_op4ig"]
 size = Vector2(32, 250)
 
+[sub_resource type="GDScript" id="GDScript_g4acp"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = \"Live: \" + str(get_node(\"../../oscar\").LIVE)
+"
+
 [node name="map-1" type="Node2D"]
 
 [node name="tiles" type="Node2D" parent="."]
@@ -58578,6 +58592,18 @@ position = Vector2(-253, -7)
 position = Vector2(-32, -4)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_j28ed")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Live" type="Label" parent="UI"]
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 87.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Live"
+script = SubResource("GDScript_g4acp")
 
 [connection signal="body_entered" from="ladder" to="ladder" method="_on_body_entered"]
 [connection signal="body_exited" from="ladder" to="ladder" method="_on_body_exited"]

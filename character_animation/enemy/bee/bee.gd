@@ -21,8 +21,6 @@ func _process(delta):
 		$AnimatedSprite2D.flip_h = false
 
 	move_and_slide()
-	
-
 
 func _on_hitbody_body_entered(body):
 	print("Body entered - Bee: " + body.name)
