@@ -23,7 +23,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	initial_position = position
 	var boar = get_node("../Boar")
-	boar.custom.connect(death)
+	#boar.custom.connect(death)
 	print(initial_position)
 	
 func death():
