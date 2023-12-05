@@ -428,7 +428,7 @@ shape = SubResource("CapsuleShape2D_wiqoy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, 0)
 sprite_frames = SubResource("SpriteFrames_wil72")
-animation = &"jump"
+animation = &"death"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]

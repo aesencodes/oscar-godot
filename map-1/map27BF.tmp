@@ -58455,7 +58455,8 @@ position = Vector2(10822, 565)
 position = Vector2(11036, 396)
 
 [node name="oscar" parent="." instance=ExtResource("5_l40ll")]
-position = Vector2(10044, 531)
+position = Vector2(9913, 470)
+climbing = false
 
 [node name="ladder" type="Area2D" parent="."]
 collision_layer = 32

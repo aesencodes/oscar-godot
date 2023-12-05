@@ -10,7 +10,6 @@ var jump_count = 0
 
 var death_enemy = false
 
-var LIVE = 9
 var check = true
 
 var initial_position = Vector2()  # Simpan posisi awal pemain
@@ -23,14 +22,39 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	initial_position = position
 	var boar = get_node("../Boar")
-	#boar.custom.connect(death)
-	print(initial_position)
+	var boar2 = get_node("../Boar2")
+	var boar3 = get_node("../Boar3")
+	var goblin = get_node("../goblin")
+	var goblin2 = get_node("../goblin2")
+	var goblin3 = get_node("../goblin3")
+	var goblin4 = get_node("../goblin4")
+	var goblin5 = get_node("../goblin5")
+	var bee = get_node("../Bee")
+	var bee2 = get_node("../bumper_bee/Bee2")
+	var bee3 = get_node("../bumper_bee/Bee3")
+	var bee4 = get_node("../bumper_bee/Bee4")
+	
+	boar.custom.connect(death)
+	boar2.custom.connect(death)
+	boar3.custom.connect(death)
+	goblin.goblin.connect(death)
+	goblin2.goblin.connect(death)
+	goblin3.goblin.connect(death)
+	goblin4.goblin.connect(death)
+	goblin5.goblin.connect(death)
+	bee.bee.connect(death)
+	bee2.bee.connect(death)
+	bee3.bee.connect(death)
+	bee4.bee.connect(death)
 	
 func death():
 	death_enemy = true
+	print("death")
 
 func _physics_process(delta):
-	print(death_enemy)
+	var current_animation = animation.get_current_animation()
+	
+	#if current_animation != "death": 
 	if climbing == false:
 		velocity.y += gravity * delta
 	elif climbing == true:
@@ -49,18 +73,19 @@ func _physics_process(delta):
 	if is_on_floor() and jump_count != 0:
 		velocity.y += gravity * delta
 		jump_count = 0
-		
-
+	
+	
 	if jump_count < JUMP_MAX:
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") and current_animation != "death":
 			velocity.y = JUMP_VELOCITY
 			animation.play("jump")
 			jump_count += 1
 	
-		if position.y > DeathThreshold or death_enemy:
-			animation.play("death")
-			await get_tree().create_timer(0.5).timeout
-	
+	if position.y > DeathThreshold or death_enemy:
+		animation.play("death")
+		await get_tree().create_timer(0.6).timeout
+		death_enemy = false
+		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -92,10 +117,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_animation_player_animation_finished(anim_name):
-	print("memekx")
 	if anim_name == "death":
-		print("memek")
-		LIVE = LIVE - 1
-		death_enemy = false
-		position = initial_position
-		print("NYAWA: ", LIVE)
+		GlobalData.LIVE -= 1
+		get_tree().reload_current_scene()
