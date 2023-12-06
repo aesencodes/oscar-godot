@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Oscar
+
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 const JUMP_MAX = 2
@@ -23,6 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sfx_running= $SFX_Running
 
 func _ready():
+	GlobalData.player = self
 	var namex = get_tree().current_scene.get_name()
 	initial_position = position
 	if namex == "map-1":
@@ -78,6 +81,7 @@ func _ready():
 	elif namex == "map-5":
 		pass
 		
+
 func death():
 	death_enemy = true
 	print("death")
@@ -120,9 +124,12 @@ func _physics_process(delta):
 		#Sound Player Death
 		sfx_death.play()
 		
+		#animate play Death
 		animation.play("death")
-		await get_tree().create_timer(0.6).timeout
-		death_enemy = false
+		await get_tree().create_timer(0.5).timeout
+		
+		death_enemy = false	
+	
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -182,9 +189,9 @@ func _physics_process(delta):
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "death":
-		GlobalData.LIVE -= 1
 		GlobalData.Death_bool = false
-		get_tree().reload_current_scene()
+		GlobalData.LIVE -= 1
+		GlobalData.respawn_player()
 		
 func sfx_running_sound(): 
 	sfx_running.pitch_scale = randf_range(.8, 1.2)
