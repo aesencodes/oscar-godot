@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ndnaj6jlwnwl"]
+[gd_scene load_steps=51 format=3 uid="uid://ndnaj6jlwnwl"]
 
 [ext_resource type="AudioStream" uid="uid://dni1l2rh2n35t" path="res://sound/background-music-3.mp3" id="1_imqab"]
 [ext_resource type="Script" path="res://map-1/map_1.gd" id="1_itpy0"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://0kowtb0y3gcm" path="res://character_animation/enemy/bee/bee.tscn" id="9_6s5bs"]
 [ext_resource type="PackedScene" uid="uid://chhc6xe7el5a1" path="res://character_animation/enemy/goblin/goblin.tscn" id="10_efaef"]
 [ext_resource type="PackedScene" uid="uid://qfe8gc85uldt" path="res://assets/moving_platform/moving_platform.tscn" id="15_fwuv8"]
-[ext_resource type="PackedScene" uid="uid://sh3kusfs526f" path="res://character_animation/checkpoint/check_point.tscn" id="18_peuhk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ucxqy"]
 texture = ExtResource("1_q4pn2")
@@ -58463,17 +58462,9 @@ position = Vector2(10822, 565)
 [node name="moving_platform5" parent="." instance=ExtResource("15_fwuv8")]
 position = Vector2(11036, 396)
 
-[node name="CheckPoint" parent="." instance=ExtResource("18_peuhk")]
-position = Vector2(8573, 378)
-
-[node name="CheckPoint2" parent="." instance=ExtResource("18_peuhk")]
-position = Vector2(4225, 441)
-
-[node name="CheckPoint3" parent="." instance=ExtResource("18_peuhk")]
-position = Vector2(111, 667)
-
 [node name="oscar" parent="." instance=ExtResource("5_l40ll")]
-position = Vector2(64, 646)
+position = Vector2(11285, 322)
+climbing = false
 
 [node name="ladder" type="Area2D" parent="."]
 collision_layer = 32

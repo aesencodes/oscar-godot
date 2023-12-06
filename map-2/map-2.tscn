@@ -41466,7 +41466,7 @@ position = Vector2(5852, 578)
 position = Vector2(8140, 525)
 
 [node name="oscar" parent="." instance=ExtResource("9_jvo0v")]
-position = Vector2(118, 665)
+position = Vector2(2455, 743)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
