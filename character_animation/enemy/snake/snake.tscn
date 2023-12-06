@@ -105,6 +105,8 @@ _data = {
 size = Vector2(74, 36)
 
 [node name="Snake" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 27
 script = ExtResource("1_phcxt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -118,6 +120,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_i3pio")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "walk"
 libraries = {
 "": SubResource("AnimationLibrary_1n5t6")
 }

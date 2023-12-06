@@ -17,9 +17,9 @@ func _process(delta):
 		movespeed = -movespeed
 		
 	if movespeed > 0 :
-		$AnimatedSprite2D.flip_h = true
-	else:
 		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 		
 
 func _on_hit_area_body_entered(body):

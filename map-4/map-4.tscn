@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://biuueu7cy77r2"]
+[gd_scene load_steps=41 format=3 uid="uid://biuueu7cy77r2"]
 
 [ext_resource type="Texture2D" uid="uid://drmqp7p7cjcnb" path="res://assets/tileset/map-4/object/Hive.png" id="1_n64rm"]
 [ext_resource type="Texture2D" uid="uid://c4xs5kbw1wlag" path="res://assets/tileset/map-4/tiles/tile_temple.png" id="2_6u8gm"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://odjjap7vdlb0" path="res://assets/tileset/map-4/tiles/Assets.png" id="5_a71pa"]
 [ext_resource type="PackedScene" uid="uid://u4bpk57kdfk7" path="res://character_animation/oscar/oscar.tscn" id="5_dbc0d"]
 [ext_resource type="PackedScene" uid="uid://cvfwc38wt7w4g" path="res://assets/moving_platform/left_moving_forward.tscn" id="7_xatd5"]
+[ext_resource type="PackedScene" uid="uid://578h30x04g03" path="res://character_animation/enemy/snake/snake.tscn" id="11_gx8p8"]
+[ext_resource type="PackedScene" uid="uid://br1iwvck1sa0t" path="res://map-1/bumper_enemy/bumper.tscn" id="12_xfwcr"]
+[ext_resource type="PackedScene" uid="uid://chhc6xe7el5a1" path="res://character_animation/enemy/goblin/goblin.tscn" id="13_hs0mh"]
+[ext_resource type="PackedScene" uid="uid://sh3kusfs526f" path="res://character_animation/checkpoint/check_point.tscn" id="14_v85q7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v7i8"]
 texture = ExtResource("5_a71pa")
@@ -4552,7 +4556,7 @@ position = Vector2(3880, 544)
 position = Vector2(4561, 534)
 
 [node name="oscar" parent="." instance=ExtResource("5_dbc0d")]
-position = Vector2(11422, 332)
+position = Vector2(68, 632)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(3096, 167)
@@ -4730,3 +4734,66 @@ shape = SubResource("RectangleShape2D_jwg2l")
 
 [node name="left_moving_forward" parent="." instance=ExtResource("7_xatd5")]
 position = Vector2(5119, 532)
+
+[node name="Snake" parent="." instance=ExtResource("11_gx8p8")]
+position = Vector2(8337, 401)
+
+[node name="bumper" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(8160, 390)
+
+[node name="bumper2" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(8558, 390)
+
+[node name="Snake2" parent="." instance=ExtResource("11_gx8p8")]
+position = Vector2(7489, 339)
+
+[node name="bumper3" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(7393, 328)
+
+[node name="bumper4" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(7790, 328)
+
+[node name="Snake3" parent="." instance=ExtResource("11_gx8p8")]
+position = Vector2(4207, 515)
+
+[node name="bumper5" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(4110, 499)
+
+[node name="bumper6" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(4507, 499)
+
+[node name="goblin" parent="." instance=ExtResource("13_hs0mh")]
+position = Vector2(3182, 347)
+
+[node name="bumper7" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(3007, 339)
+
+[node name="bumper8" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(3403, 342)
+
+[node name="goblin2" parent="." instance=ExtResource("13_hs0mh")]
+position = Vector2(3087, 523)
+
+[node name="bumper9" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(3006, 513)
+
+[node name="bumper10" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(3402, 516)
+
+[node name="Snake4" parent="." instance=ExtResource("11_gx8p8")]
+position = Vector2(1456, 529)
+
+[node name="bumper11" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(1327, 523)
+
+[node name="bumper12" parent="." instance=ExtResource("12_xfwcr")]
+position = Vector2(1599, 521)
+
+[node name="CheckPoint" parent="." instance=ExtResource("14_v85q7")]
+position = Vector2(136, 636)
+
+[node name="CheckPoint2" parent="." instance=ExtResource("14_v85q7")]
+position = Vector2(3806, 523)
+
+[node name="CheckPoint3" parent="." instance=ExtResource("14_v85q7")]
+position = Vector2(9299, 171)

@@ -1,4 +1,12 @@
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=55 format=3 uid="uid://ndnaj6jlwnwl"]
+=======
+[gd_scene load_steps=52 format=3 uid="uid://ndnaj6jlwnwl"]
+>>>>>>> Stashed changes
+=======
+[gd_scene load_steps=52 format=3 uid="uid://ndnaj6jlwnwl"]
+>>>>>>> Stashed changes
 
 [ext_resource type="AudioStream" uid="uid://dni1l2rh2n35t" path="res://sound/background-music-3.mp3" id="1_imqab"]
 [ext_resource type="Script" path="res://map-1/map_1.gd" id="1_itpy0"]
@@ -58339,6 +58347,9 @@ size = Vector2(13.125, 226.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gv0f"]
 size = Vector2(22.1094, 296.844)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jn8y5"]
+size = Vector2(22.1094, 296.844)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsv6w"]
 size = Vector2(22.1094, 321.438)
 
@@ -58458,6 +58469,10 @@ shape = SubResource("RectangleShape2D_8ettp")
 position = Vector2(7365.11, 702.422)
 shape = SubResource("RectangleShape2D_6gv0f")
 
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7, 583)
+shape = SubResource("RectangleShape2D_jn8y5")
+
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(11351, 195)
 shape = SubResource("RectangleShape2D_vsv6w")
@@ -58503,7 +58518,14 @@ position = Vector2(8584, 366)
 position = Vector2(11283, 319)
 
 [node name="oscar" parent="." instance=ExtResource("5_l40ll")]
+<<<<<<< Updated upstream
 position = Vector2(69, 657)
+=======
+position = Vector2(11285, 322)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 [node name="ladder" type="Area2D" parent="."]
 collision_layer = 32
