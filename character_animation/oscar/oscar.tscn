@@ -1,10 +1,13 @@
-[gd_scene load_steps=38 format=3 uid="uid://u4bpk57kdfk7"]
+[gd_scene load_steps=41 format=3 uid="uid://u4bpk57kdfk7"]
 
 [ext_resource type="Script" path="res://character_animation/oscar/oscar.gd" id="1_2jnlp"]
 [ext_resource type="Texture2D" uid="uid://bttar3l6ue1ra" path="res://assets/character/oscar/oscar-sheet.png" id="2_uoddt"]
 [ext_resource type="Texture2D" uid="uid://dcbxp1ipi0khy" path="res://assets/character/oscar/detail/Idle.png" id="3_3jf4x"]
 [ext_resource type="Texture2D" uid="uid://c3mkyokwrp343" path="res://assets/character/oscar/detail/Walk.png" id="4_g8q3w"]
 [ext_resource type="Texture2D" uid="uid://ds3f3tb4exm4b" path="res://assets/character/oscar/detail/Launch.png" id="4_s6go2"]
+[ext_resource type="AudioStream" uid="uid://cr4vqsr58v4qm" path="res://sound/jump.mp3" id="6_k4xmh"]
+[ext_resource type="AudioStream" uid="uid://dppc5tghrwvn6" path="res://sound/game-death.wav" id="7_nbhuj"]
+[ext_resource type="AudioStream" uid="uid://bkf6ypk55tmo3" path="res://sound/running_in_grass.mp3" id="8_t8bpb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wiqoy"]
 radius = 9.0
@@ -404,6 +407,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"sfx_running_sound"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx536"]
 _data = {
@@ -428,7 +445,7 @@ shape = SubResource("CapsuleShape2D_wiqoy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, 0)
 sprite_frames = SubResource("SpriteFrames_wil72")
-animation = &"death"
+animation = &"walk"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -439,5 +456,18 @@ limit_left = 0
 libraries = {
 "": SubResource("AnimationLibrary_cx536")
 }
+
+[node name="SFX_Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_k4xmh")
+bus = &"SFX"
+
+[node name="SFX_Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nbhuj")
+bus = &"SFX"
+
+[node name="SFX_Running" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_t8bpb")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

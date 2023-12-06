@@ -17,7 +17,10 @@ var initial_position = Vector2()  # Simpan posisi awal pemain
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var animation = get_node("AnimationPlayer")
+@onready var animation 	= get_node("AnimationPlayer")
+@onready var sfx_jump 	= $SFX_Jump
+@onready var sfx_death 	= $SFX_Death
+@onready var sfx_running= $SFX_Running
 
 func _ready():
 	initial_position = position
@@ -79,9 +82,15 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept") and current_animation != "death":
 			velocity.y = JUMP_VELOCITY
 			animation.play("jump")
+			sfx_jump.play()
 			jump_count += 1
 	
 	if position.y > DeathThreshold or death_enemy:
+		GlobalData.Death_bool = true
+		
+		#Sound Player Death
+		sfx_death.play()
+		
 		animation.play("death")
 		await get_tree().create_timer(0.6).timeout
 		death_enemy = false
@@ -99,6 +108,7 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction * SPEED
 			if velocity.y == 0:
+				
 				animation.play("walk")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -106,17 +116,25 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 		if velocity.y > 0:
+			
 			animation.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if velocity.y == 0:
 			animation.play("idle")
+			sfx_running.stop()
 		if velocity.y > 0:
 			animation.play("idle")
-		
+			sfx_running.stop()			
+	
 	move_and_slide()
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "death":
 		GlobalData.LIVE -= 1
+		GlobalData.Death_bool = false		
 		get_tree().reload_current_scene()
+		
+func sfx_running_sound(): 
+	sfx_running.pitch_scale = randf_range(.8, 1.2)
+	sfx_running.play()
