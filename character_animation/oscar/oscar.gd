@@ -19,10 +19,10 @@ var initial_position = Vector2()  # Simpan posisi awal pemain
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var animation 	= get_node("AnimationPlayer")
-@onready var sfx_jump 	= $SFX_Jump
-@onready var sfx_death 	= $SFX_Death
-@onready var sfx_running= $SFX_Running
+@onready var animation = get_node("AnimationPlayer")
+@onready var sfx_jump = $SFX_Jump
+@onready var sfx_death = $SFX_Death
+@onready var sfx_running = $SFX_Running
 
 func _ready():
 	GlobalData.player = self
@@ -128,7 +128,7 @@ func _physics_process(delta):
 		animation.play("death")
 		await get_tree().create_timer(0.5).timeout
 		
-		death_enemy = false	
+		death_enemy = false
 	
 		
 	# Get the input direction and handle the movement/deceleration.
