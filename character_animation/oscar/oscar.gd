@@ -101,9 +101,7 @@ func _physics_process(delta):
 		await get_tree().create_timer(0.5).timeout
 		
 		death_enemy = false
-		
-		#Respawn to CheckPoint
-		GlobalData.respawn_player()
+	
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -142,7 +140,10 @@ func _physics_process(delta):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "death":
 		GlobalData.LIVE -= 1
-		GlobalData.Death_bool = false		
+		GlobalData.Death_bool = false
+		
+		#Respawn to CheckPoint
+		GlobalData.respawn_player()
 		
 func sfx_running_sound(): 
 	sfx_running.pitch_scale = randf_range(.8, 1.2)
