@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cypgbxqoi4o62"]
+[gd_scene load_steps=77 format=3 uid="uid://cypgbxqoi4o62"]
 
 [ext_resource type="Texture2D" uid="uid://cd4iwy0htwul2" path="res://assets/tileset/map-3/tileset/Mossy - TileSet.png" id="1_pbuum"]
 [ext_resource type="Texture2D" uid="uid://d2v5fu6yinm3c" path="res://assets/tileset/map-3/tileset/Mossy - FloatingPlatforms.png" id="2_gmr80"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c1aywe3ohwexi" path="res://character_animation/enemy/snail/snail.tscn" id="14_2ei8m"]
 [ext_resource type="PackedScene" uid="uid://c4am62t1ntrns" path="res://map-3/bg_map_3.tscn" id="15_42mbd"]
 [ext_resource type="Texture2D" uid="uid://bx1622afk3a3f" path="res://assets/live.png" id="16_s4txy"]
+[ext_resource type="Texture2D" uid="uid://pxil5uf7qprr" path="res://assets/roll-map.png" id="17_i1o1w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l7lm0"]
 texture = ExtResource("1_pbuum")
@@ -11801,9 +11802,6 @@ scale = Vector2(0.2, 0.2)
 [node name="bumper7" parent="." instance=ExtResource("10_hb355")]
 position = Vector2(4560, 677)
 
-[node name="bumper7" parent="bumper7" instance=ExtResource("10_hb355")]
-position = Vector2(4560, 677)
-
 [node name="bumper8" parent="." instance=ExtResource("10_hb355")]
 position = Vector2(4413, 680)
 
@@ -11812,9 +11810,6 @@ position = Vector2(5244, 465)
 scale = Vector2(1.5, 1.5)
 
 [node name="bumper9" parent="." instance=ExtResource("10_hb355")]
-position = Vector2(5269, 469)
-
-[node name="bumper9" parent="bumper9" instance=ExtResource("10_hb355")]
 position = Vector2(5269, 469)
 
 [node name="bumper10" parent="." instance=ExtResource("10_hb355")]
@@ -11879,3 +11874,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Live"
 script = SubResource("GDScript_v8tuo")
+
+[node name="Roll-map" type="Sprite2D" parent="."]
+position = Vector2(6784, -1003)
+scale = Vector2(0.335491, 0.416667)
+texture = ExtResource("17_i1o1w")

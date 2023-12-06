@@ -42,24 +42,28 @@ position = Vector2(240, 297)
 texture = ExtResource("3_wjyok")
 
 [node name="Far-mountains2" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(719, 299)
+position = Vector2(720, 297)
 texture = ExtResource("3_wjyok")
+flip_h = true
 
 [node name="Far-mountains3" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(1126, 301)
+position = Vector2(1126, 297)
 texture = ExtResource("3_wjyok")
+flip_h = true
 
 [node name="Mountains" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(240, 331)
+position = Vector2(240, 332)
 texture = ExtResource("4_vft0m")
 
 [node name="Mountains2" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(719, 333)
+position = Vector2(647, 336)
 texture = ExtResource("4_vft0m")
+flip_h = true
 
 [node name="Mountains3" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(1126, 343)
+position = Vector2(1127, 332)
 texture = ExtResource("4_vft0m")
+flip_h = true
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.7, 1)

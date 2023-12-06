@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dir3l0tltcbvx"]
+[gd_scene load_steps=47 format=3 uid="uid://dir3l0tltcbvx"]
 
 [ext_resource type="Texture2D" uid="uid://dyy4tf8jpfkyf" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="1_6ippm"]
 [ext_resource type="Texture2D" uid="uid://dpfdceb5q34mk" path="res://assets/tileset/map-1-and-2/rocks/Props-Rocks.png" id="3_k84yj"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://xqr368bpk65m" path="res://assets/moving_platform/up_moving_forward.tscn" id="18_llvkp"]
 [ext_resource type="PackedScene" uid="uid://sh3kusfs526f" path="res://character_animation/checkpoint/check_point.tscn" id="20_q7dyo"]
 [ext_resource type="Texture2D" uid="uid://bx1622afk3a3f" path="res://assets/live.png" id="21_3tnuf"]
+[ext_resource type="Texture2D" uid="uid://pxil5uf7qprr" path="res://assets/roll-map.png" id="22_y57on"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqg1t"]
 texture = ExtResource("1_6ippm")
@@ -39813,3 +39814,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Live"
 script = SubResource("GDScript_j4388")
+
+[node name="Roll-map" type="Sprite2D" parent="."]
+position = Vector2(8855, 654)
+scale = Vector2(0.335491, 0.416667)
+texture = ExtResource("22_y57on")
