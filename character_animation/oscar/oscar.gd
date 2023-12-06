@@ -23,40 +23,69 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sfx_running= $SFX_Running
 
 func _ready():
+	var namex = get_tree().current_scene.get_name()
 	initial_position = position
-	var boar = get_node("../Boar")
-	var boar2 = get_node("../Boar2")
-	var boar3 = get_node("../Boar3")
-	var goblin = get_node("../goblin")
-	var goblin2 = get_node("../goblin2")
-	var goblin3 = get_node("../goblin3")
-	var goblin4 = get_node("../goblin4")
-	var goblin5 = get_node("../goblin5")
-	var bee = get_node("../Bee")
-	var bee2 = get_node("../bumper_bee/Bee2")
-	var bee3 = get_node("../bumper_bee/Bee3")
-	var bee4 = get_node("../bumper_bee/Bee4")
-	
-	boar.custom.connect(death)
-	boar2.custom.connect(death)
-	boar3.custom.connect(death)
-	goblin.goblin.connect(death)
-	goblin2.goblin.connect(death)
-	goblin3.goblin.connect(death)
-	goblin4.goblin.connect(death)
-	goblin5.goblin.connect(death)
-	bee.bee.connect(death)
-	bee2.bee.connect(death)
-	bee3.bee.connect(death)
-	bee4.bee.connect(death)
-	
+	if namex == "map-1":
+		var boar = get_node("../Boar")
+		var boar2 = get_node("../Boar2")
+		var boar3 = get_node("../Boar3")
+		var goblin = get_node("../goblin")
+		var goblin2 = get_node("../goblin2")
+		var goblin3 = get_node("../goblin3")
+		var goblin4 = get_node("../goblin4")
+		var goblin5 = get_node("../goblin5")
+		var bee = get_node("../Bee")
+		var bee2 = get_node("../bumper_bee/Bee2")
+		var bee3 = get_node("../bumper_bee/Bee3")
+		var bee4 = get_node("../bumper_bee/Bee4")
+		boar.custom.connect(death)
+		boar2.custom.connect(death)
+		boar3.custom.connect(death)
+		goblin.goblin.connect(death)
+		goblin2.goblin.connect(death)
+		goblin3.goblin.connect(death)
+		goblin4.goblin.connect(death)
+		goblin5.goblin.connect(death)
+		bee.bee.connect(death)
+		bee2.bee.connect(death)
+		bee3.bee.connect(death)
+		bee4.bee.connect(death)
+	elif namex == "map-2":
+		var boar21 = get_node("../Boar1")
+		var boar22 = get_node("../Boar2")
+		boar21.custom.connect(death)
+		boar22.custom.connect(death)
+		var bee20 = get_node("../Bee")
+		var bee21 = get_node("../Bee2")
+		var bee22 = get_node("../Bee3")
+		var bee23 = get_node("../Bee4")
+		var bee24 = get_node("../Bee5")
+		var bee25 = get_node("../Bee6")
+		bee20.bee.connect(death)
+		bee21.bee.connect(death)
+		bee22.bee.connect(death)
+		bee23.bee.connect(death)
+		bee24.bee.connect(death)
+		bee25.bee.connect(death)
+		var goblin20 = get_node("../goblin")
+		var goblin21 = get_node("../goblin2")
+		goblin20.goblin.connect(death)
+		goblin21.goblin.connect(death)
+	elif namex == "map-3":
+		pass
+	elif namex == "map-4":
+		pass
+	elif namex == "map-5":
+		pass
+		
 func death():
 	death_enemy = true
 	print("death")
 
 func _physics_process(delta):
 	var current_animation = animation.get_current_animation()
-	
+	print("X: ", position.x)
+	print("Y: ", position.y)
 	#if current_animation != "death": 
 	if climbing == false:
 		velocity.y += gravity * delta
@@ -125,7 +154,30 @@ func _physics_process(delta):
 			sfx_running.stop()
 		if velocity.y > 0:
 			animation.play("idle")
-			sfx_running.stop()			
+			sfx_running.stop()
+			
+	var namee = get_tree().current_scene.get_name()
+	print(namee)
+	
+	if namee == "map-1":
+		if position.x > 11300 and position.y > 330:
+			SceneLoading.load_scene("res://map-2/map-2.tscn")
+	elif namee == "map-2":
+		if position.x > 8861 and position.y > 650:
+			SceneLoading.load_scene("res://map-3/map_3.tscn")
+	elif namee == "map-3":
+		if position.x > 6800 and position.y < -990:
+			SceneLoading.load_scene("res://map-4/map-4.tscn")
+	elif namee == "Map-4":
+		if position.x > 11490 and position.y > 329:
+			SceneLoading.load_scene("res://map-5/map-5.tscn")
+	elif namee == "Map-5":
+		if position.x > 453 and position.y < 540:
+			SceneLoading.load_scene("res://main-menu/main_menu.tscn")
+		
+	if GlobalData.LIVE < 1:
+		GlobalData.LIVE = 9
+		SceneLoading.load_scene("res://main-menu/main_menu.tscn")
 	
 	move_and_slide()
 
