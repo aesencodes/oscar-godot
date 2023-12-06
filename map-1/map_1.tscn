@@ -1,5 +1,7 @@
-[gd_scene load_steps=49 format=3 uid="uid://ndnaj6jlwnwl"]
+[gd_scene load_steps=51 format=3 uid="uid://ndnaj6jlwnwl"]
 
+[ext_resource type="AudioStream" uid="uid://dni1l2rh2n35t" path="res://sound/background-music-3.mp3" id="1_imqab"]
+[ext_resource type="Script" path="res://map-1/map_1.gd" id="1_itpy0"]
 [ext_resource type="PackedScene" uid="uid://cfl5pj25sfykr" path="res://map-1/parallax_background.tscn" id="1_j28ed"]
 [ext_resource type="Texture2D" uid="uid://dyy4tf8jpfkyf" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="1_q4pn2"]
 [ext_resource type="Texture2D" uid="uid://cdvcukjtmamph" path="res://assets/tileset/map-1-and-2/tiles/stair.png" id="3_o8x4d"]
@@ -58366,6 +58368,12 @@ func _process(delta):
 "
 
 [node name="map-1" type="Node2D"]
+script = ExtResource("1_itpy0")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_imqab")
+volume_db = -10.0
+bus = &"Music"
 
 [node name="tiles" type="Node2D" parent="."]
 
@@ -58455,7 +58463,7 @@ position = Vector2(10822, 565)
 position = Vector2(11036, 396)
 
 [node name="oscar" parent="." instance=ExtResource("5_l40ll")]
-position = Vector2(10044, 531)
+position = Vector2(90, 656)
 
 [node name="ladder" type="Area2D" parent="."]
 collision_layer = 32
