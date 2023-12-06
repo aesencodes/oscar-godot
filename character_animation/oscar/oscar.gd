@@ -157,7 +157,6 @@ func _physics_process(delta):
 			sfx_running.stop()
 			
 	var namee = get_tree().current_scene.get_name()
-	print(namee)
 	
 	if namee == "map-1":
 		if position.x > 11300 and position.y > 330:
@@ -184,7 +183,7 @@ func _physics_process(delta):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "death":
 		GlobalData.LIVE -= 1
-		GlobalData.Death_bool = false		
+		GlobalData.Death_bool = false
 		get_tree().reload_current_scene()
 		
 func sfx_running_sound(): 
