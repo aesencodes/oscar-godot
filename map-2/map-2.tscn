@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dir3l0tltcbvx"]
+[gd_scene load_steps=46 format=3 uid="uid://dir3l0tltcbvx"]
 
 [ext_resource type="Texture2D" uid="uid://dyy4tf8jpfkyf" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="1_6ippm"]
 [ext_resource type="Texture2D" uid="uid://dpfdceb5q34mk" path="res://assets/tileset/map-1-and-2/rocks/Props-Rocks.png" id="3_k84yj"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cb0eye4w5d7v6" path="res://assets/moving_platform/down_moving_forward.tscn" id="17_alhfj"]
 [ext_resource type="PackedScene" uid="uid://xqr368bpk65m" path="res://assets/moving_platform/up_moving_forward.tscn" id="18_llvkp"]
 [ext_resource type="PackedScene" uid="uid://sh3kusfs526f" path="res://character_animation/checkpoint/check_point.tscn" id="20_q7dyo"]
+[ext_resource type="Texture2D" uid="uid://bx1622afk3a3f" path="res://assets/live.png" id="21_3tnuf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqg1t"]
 texture = ExtResource("1_6ippm")
@@ -39553,6 +39554,20 @@ size = Vector2(32, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2dkx"]
 size = Vector2(9.87842, 65.5)
 
+[sub_resource type="GDScript" id="GDScript_j4388"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = \".. : \" + str(GlobalData.LIVE)
+"
+
 [node name="map-2" type="Node2D"]
 
 [node name="tiles" type="Node2D" parent="."]
@@ -39614,7 +39629,7 @@ position = Vector2(5852, 578)
 position = Vector2(8140, 525)
 
 [node name="CheckPoint" parent="." instance=ExtResource("20_q7dyo")]
-position = Vector2(66, 669)
+position = Vector2(123, 660)
 
 [node name="CheckPoint2" parent="." instance=ExtResource("20_q7dyo")]
 position = Vector2(5063, 445)
@@ -39623,7 +39638,7 @@ position = Vector2(5063, 445)
 position = Vector2(8767, 652)
 
 [node name="oscar" parent="." instance=ExtResource("9_jvo0v")]
-position = Vector2(8636, 647)
+position = Vector2(47, 648)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -39781,3 +39796,20 @@ position = Vector2(3571, 596)
 
 [node name="up_moving_forward3" parent="." instance=ExtResource("18_llvkp")]
 position = Vector2(8074, 496)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Live2" type="Sprite2D" parent="UI"]
+position = Vector2(33, 39)
+scale = Vector2(1.21528, 1.23442)
+texture = ExtResource("21_3tnuf")
+
+[node name="Live" type="Label" parent="UI"]
+offset_left = 31.0
+offset_top = 22.0
+offset_right = 108.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Live"
+script = SubResource("GDScript_j4388")

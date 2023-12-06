@@ -88,6 +88,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_s6pt7"]
 resource_name = "walk"
 length = 0.9
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -111,7 +112,7 @@ _data = {
 size = Vector2(80, 53)
 
 [node name="snail" type="CharacterBody2D"]
-collision_layer = 5
+collision_layer = 4
 collision_mask = 27
 script = ExtResource("1_4vg1i")
 
@@ -126,6 +127,7 @@ position = Vector2(-4, 5.5)
 shape = SubResource("RectangleShape2D_lxh4j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "walk"
 libraries = {
 "": SubResource("AnimationLibrary_nfy76")
 }

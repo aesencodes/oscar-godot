@@ -76,9 +76,41 @@ func _ready():
 		goblin20.goblin.connect(death)
 		goblin21.goblin.connect(death)
 	elif namex == "map-3":
-		pass
+		var bear = get_node("../bear")
+		var snake = get_node("../Snake")
+		var slime = get_node("../slime")
+		var slime2 = get_node("../slime2")
+		var goblin22 = get_node("../goblin")
+		var goblin23 = get_node("../goblin2")
+		var bear2 = get_node("../bear2")
+		var snail = get_node("../snail")
+		var snail2 = get_node("../snail2")
+		
+		bear.bear.connect(death)
+		snake.snake.connect(death)
+		slime.slime.connect(death)
+		slime2.slime.connect(death)
+		goblin22.goblin.connect(death)
+		goblin23.goblin.connect(death)
+		bear2.bear.connect(death)
+		snail.snail.connect(death)
+		snail2.snail.connect(death)
+		
 	elif namex == "map-4":
-		pass
+		var snake3 = get_node("../Snake")
+		var snake4 = get_node("../Snake2")
+		var snake5 = get_node("../Snake3")
+		var snake6 = get_node("../Snake4")
+		var goblin24 = get_node("../goblin")
+		var goblin25 =get_node("../goblin2")
+		
+		snake3.snake.connect(death)
+		snake4.snake.connect(death)
+		snake5.snake.connect(death)
+		snake6.snake.connect(death)
+		goblin24.goblin.connect(death)
+		goblin25.goblin.connect(death)
+		
 	elif namex == "map-5":
 		pass
 		

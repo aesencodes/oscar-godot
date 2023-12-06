@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4am62t1ntrns"]
+
+[ext_resource type="Script" path="res://map-3/bg-map-3.gd" id="1_jcm50"]
+[ext_resource type="Texture2D" uid="uid://drmouy2n33dmh" path="res://assets/tileset/map-3/grey_L1.png" id="2_khmc1"]
+[ext_resource type="Texture2D" uid="uid://d1rykgasd28oc" path="res://assets/tileset/map-3/grey_L2.png" id="3_turus"]
+[ext_resource type="Texture2D" uid="uid://mqxoyixqh0fb" path="res://assets/tileset/map-3/grey_L3.png" id="4_esuu2"]
+
+[node name="bg-map-3" type="ParallaxBackground"]
+script = ExtResource("1_jcm50")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1366, 2.08165e-12)
+
+[node name="GreyL1" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(683, 384)
+scale = Vector2(2.13437, 3.072)
+texture = ExtResource("2_khmc1")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1366, 2.08165e-12)
+
+[node name="GreyL2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(683, 384)
+scale = Vector2(2.13438, 3.072)
+texture = ExtResource("3_turus")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1366, 2.08165e-12)
+
+[node name="GreyL3" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(683, 384)
+scale = Vector2(2.13437, 3.072)
+texture = ExtResource("4_esuu2")

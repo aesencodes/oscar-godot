@@ -231,7 +231,7 @@ height = 34.0
 
 [node name="goblin" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 11
+collision_mask = 27
 script = ExtResource("1_mjmpt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

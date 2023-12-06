@@ -1,12 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[gd_scene load_steps=55 format=3 uid="uid://ndnaj6jlwnwl"]
-=======
-[gd_scene load_steps=52 format=3 uid="uid://ndnaj6jlwnwl"]
->>>>>>> Stashed changes
-=======
-[gd_scene load_steps=52 format=3 uid="uid://ndnaj6jlwnwl"]
->>>>>>> Stashed changes
+[gd_scene load_steps=56 format=3 uid="uid://ndnaj6jlwnwl"]
 
 [ext_resource type="AudioStream" uid="uid://dni1l2rh2n35t" path="res://sound/background-music-3.mp3" id="1_imqab"]
 [ext_resource type="Script" path="res://map-1/map_1.gd" id="1_itpy0"]
@@ -29,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://chhc6xe7el5a1" path="res://character_animation/enemy/goblin/goblin.tscn" id="10_efaef"]
 [ext_resource type="PackedScene" uid="uid://qfe8gc85uldt" path="res://assets/moving_platform/moving_platform.tscn" id="15_fwuv8"]
 [ext_resource type="PackedScene" uid="uid://sh3kusfs526f" path="res://character_animation/checkpoint/check_point.tscn" id="18_peuhk"]
+[ext_resource type="Texture2D" uid="uid://bx1622afk3a3f" path="res://assets/live.png" id="22_nk5kn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ucxqy"]
 texture = ExtResource("1_q4pn2")
@@ -58347,9 +58340,6 @@ size = Vector2(13.125, 226.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gv0f"]
 size = Vector2(22.1094, 296.844)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jn8y5"]
-size = Vector2(22.1094, 296.844)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsv6w"]
 size = Vector2(22.1094, 321.438)
 
@@ -58379,7 +58369,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = \"Live: \" + str(GlobalData.LIVE)
+	text = \".. : \" + str(GlobalData.LIVE)
 "
 
 [node name="map-1" type="Node2D"]
@@ -58469,10 +58459,6 @@ shape = SubResource("RectangleShape2D_8ettp")
 position = Vector2(7365.11, 702.422)
 shape = SubResource("RectangleShape2D_6gv0f")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-7, 583)
-shape = SubResource("RectangleShape2D_jn8y5")
-
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(11351, 195)
 shape = SubResource("RectangleShape2D_vsv6w")
@@ -58518,14 +58504,7 @@ position = Vector2(8584, 366)
 position = Vector2(11283, 319)
 
 [node name="oscar" parent="." instance=ExtResource("5_l40ll")]
-<<<<<<< Updated upstream
 position = Vector2(69, 657)
-=======
-position = Vector2(11285, 322)
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 [node name="ladder" type="Area2D" parent="."]
 collision_layer = 32
@@ -58665,11 +58644,16 @@ position = Vector2(-32, -4)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="Live2" type="Sprite2D" parent="UI"]
+position = Vector2(33, 39)
+scale = Vector2(1.21528, 1.23442)
+texture = ExtResource("22_nk5kn")
+
 [node name="Live" type="Label" parent="UI"]
-offset_left = 10.0
-offset_top = 5.0
-offset_right = 87.0
-offset_bottom = 63.0
+offset_left = 31.0
+offset_top = 22.0
+offset_right = 108.0
+offset_bottom = 80.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Live"

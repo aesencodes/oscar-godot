@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1itx"]
-size = Vector2(137, 85)
+size = Vector2(135, 83)
 
 [sub_resource type="Animation" id="Animation_cbbsj"]
 length = 0.001
@@ -95,7 +95,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2qrx"]
-size = Vector2(143, 92)
+size = Vector2(143, 91)
 
 [node name="bear" type="CharacterBody2D"]
 collision_layer = 4
@@ -110,7 +110,7 @@ animation = &"walk"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.5, 9.5)
+position = Vector2(2.5, 8.5)
 shape = SubResource("RectangleShape2D_y1itx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -122,7 +122,7 @@ libraries = {
 [node name="HitArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
-position = Vector2(2.5, 10)
+position = Vector2(2.5, 9.5)
 shape = SubResource("RectangleShape2D_r2qrx")
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

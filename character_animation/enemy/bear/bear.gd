@@ -3,6 +3,8 @@ extends CharacterBody2D
 var movespeed = 100
 @onready var anim = get_node("AnimationPlayer")
 
+signal bear
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -23,5 +25,5 @@ func _process(delta):
 		
 
 func _on_hit_area_body_entered(body):
-	if body.name == "Player":
-		get_tree().reload_current_scene()
+	if body.name == "oscar":
+		emit_signal("bear")
