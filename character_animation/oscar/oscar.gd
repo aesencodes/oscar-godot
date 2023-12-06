@@ -26,6 +26,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	GlobalData.player = self
+	
 	var namex = get_tree().current_scene.get_name()
 	initial_position = position
 	if namex == "map-1":
@@ -84,12 +85,12 @@ func _ready():
 
 func death():
 	death_enemy = true
-	print("death")
+	#print("death")
 
 func _physics_process(delta):
 	var current_animation = animation.get_current_animation()
-	print("X: ", position.x)
-	print("Y: ", position.y)
+	#print("X: ", position.x)
+	#print("Y: ", position.y)
 	#if current_animation != "death": 
 	if climbing == false:
 		velocity.y += gravity * delta
