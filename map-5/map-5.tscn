@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4wpuya4xi3x8"]
+[gd_scene load_steps=17 format=3 uid="uid://c4wpuya4xi3x8"]
 
 [ext_resource type="Texture2D" uid="uid://odjjap7vdlb0" path="res://assets/tileset/map-4/tiles/Assets.png" id="1_numya"]
+[ext_resource type="AudioStream" uid="uid://dni1l2rh2n35t" path="res://sound/background-music-3.mp3" id="1_oar1e"]
 [ext_resource type="Texture2D" uid="uid://dyy4tf8jpfkyf" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="2_jvq5b"]
 [ext_resource type="Texture2D" uid="uid://c4xs5kbw1wlag" path="res://assets/tileset/map-4/tiles/tile_temple.png" id="3_evqfw"]
 [ext_resource type="PackedScene" uid="uid://u4bpk57kdfk7" path="res://character_animation/oscar/oscar.tscn" id="4_2qbt1"]
@@ -2655,6 +2656,11 @@ func _process(delta):
 "
 
 [node name="Map-5" type="Node2D"]
+
+[node name="backosund" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_oar1e")
+volume_db = -4.0
+autoplay = true
 
 [node name="belakang background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_12704")

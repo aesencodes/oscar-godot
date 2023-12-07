@@ -58378,7 +58378,7 @@ script = ExtResource("1_itpy0")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_imqab")
-volume_db = -10.0
+volume_db = -4.0
 bus = &"Music"
 
 [node name="Cara_Bermain" type="TextureRect" parent="."]

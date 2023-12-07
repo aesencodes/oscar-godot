@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkors84f46kpj"]
+
+[ext_resource type="Texture2D" uid="uid://ftdqxu7igdco" path="res://wingame/make a gray kit fa4d502b-4598-4730-a8b7-f00ef181137b.png" id="1_pnuh4"]
+[ext_resource type="Texture2D" uid="uid://b4r4vx0oiqfj8" path="res://main-menu/menu-ui/main menu ui.png" id="1_rg4n8"]
+[ext_resource type="Texture2D" uid="uid://ka7wsuu7r4wk" path="res://main-menu/menu-ui/Back Square Button.png" id="2_0j872"]
+[ext_resource type="Script" path="res://wingame/TextureButton.gd" id="3_2x6gt"]
+[ext_resource type="AudioStream" uid="uid://bsjlvfiakvayi" path="res://sound/Victory - Sound Effect.mp3" id="4_1ec3v"]
+
+[node name="wingame" type="Node2D"]
+
+[node name="MainMenuUi" type="Sprite2D" parent="."]
+position = Vector2(1049.5, 390.5)
+scale = Vector2(0.402086, 0.499023)
+texture = ExtResource("1_rg4n8")
+
+[node name="MakeAGrayKitFa4d502b-4598-4730-a8b7-f00Ef181137b" type="Sprite2D" parent="."]
+position = Vector2(690.75, 385.25)
+scale = Vector2(0.77002, 0.739746)
+texture = ExtResource("1_pnuh4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(154, 202)
+texture = ExtResource("2_0j872")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 59.0
+offset_top = 105.0
+offset_right = 253.0
+offset_bottom = 301.0
+script = ExtResource("3_2x6gt")
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1ec3v")
+volume_db = -2.0
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 102.0
+offset_top = 259.0
+offset_right = 209.0
+offset_bottom = 285.0
+text = "Back to menu"
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

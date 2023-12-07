@@ -1,5 +1,6 @@
-[gd_scene load_steps=43 format=3 uid="uid://biuueu7cy77r2"]
+[gd_scene load_steps=44 format=3 uid="uid://biuueu7cy77r2"]
 
+[ext_resource type="AudioStream" uid="uid://dni1l2rh2n35t" path="res://sound/background-music-3.mp3" id="1_8bses"]
 [ext_resource type="Texture2D" uid="uid://drmqp7p7cjcnb" path="res://assets/tileset/map-4/object/Hive.png" id="1_n64rm"]
 [ext_resource type="Texture2D" uid="uid://c4xs5kbw1wlag" path="res://assets/tileset/map-4/tiles/tile_temple.png" id="2_6u8gm"]
 [ext_resource type="PackedScene" uid="uid://cb0eye4w5d7v6" path="res://assets/moving_platform/down_moving_forward.tscn" id="3_gppyn"]
@@ -4509,6 +4510,11 @@ func _process(delta):
 "
 
 [node name="Map-4" type="Node2D"]
+
+[node name="backsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_8bses")
+volume_db = -4.0
+autoplay = true
 
 [node name="death" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_mmorx")

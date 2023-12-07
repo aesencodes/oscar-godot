@@ -212,11 +212,11 @@ func _physics_process(delta):
 			SceneLoading.load_scene("res://map-5/map-5.tscn")
 	elif namee == "Map-5":
 		if position.x > 453 and position.y < 540:
-			SceneLoading.load_scene("res://main-menu/main_menu.tscn")
+			SceneLoading.load_scene("res://wingame/wingame.tscn")
 		
 	if GlobalData.LIVE < 1:
 		GlobalData.LIVE = 9
-		SceneLoading.load_scene("res://main-menu/main_menu.tscn")
+		SceneLoading.load_scene("res://gameover/gameover.tscn")
 	
 	move_and_slide()
 

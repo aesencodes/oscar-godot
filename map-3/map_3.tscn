@@ -1,5 +1,6 @@
-[gd_scene load_steps=77 format=3 uid="uid://cypgbxqoi4o62"]
+[gd_scene load_steps=78 format=3 uid="uid://cypgbxqoi4o62"]
 
+[ext_resource type="AudioStream" uid="uid://dni1l2rh2n35t" path="res://sound/background-music-3.mp3" id="1_iyl1h"]
 [ext_resource type="Texture2D" uid="uid://cd4iwy0htwul2" path="res://assets/tileset/map-3/tileset/Mossy - TileSet.png" id="1_pbuum"]
 [ext_resource type="Texture2D" uid="uid://d2v5fu6yinm3c" path="res://assets/tileset/map-3/tileset/Mossy - FloatingPlatforms.png" id="2_gmr80"]
 [ext_resource type="Texture2D" uid="uid://di7ppjc80msbh" path="res://assets/tileset/map-3/tileset/Mossy - MossyHills.png" id="3_la1ti"]
@@ -11472,6 +11473,11 @@ func _process(delta):
 "
 
 [node name="map-3" type="Node2D"]
+
+[node name="backsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_iyl1h")
+volume_db = -4.0
+autoplay = true
 
 [node name="death" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_1nlye")

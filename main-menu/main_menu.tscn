@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://doheu4jeglskq"]
+[gd_scene load_steps=6 format=3 uid="uid://doheu4jeglskq"]
 
 [ext_resource type="Script" path="res://main-menu/main_menu.gd" id="1_tcxaq"]
 [ext_resource type="Texture2D" uid="uid://b4r4vx0oiqfj8" path="res://main-menu/menu-ui/main menu ui.png" id="1_yab2c"]
 [ext_resource type="Texture2D" uid="uid://bqkdnwuf35ey4" path="res://main-menu/menu-ui/Play Button.png" id="2_p0acs"]
-[ext_resource type="Texture2D" uid="uid://bnnvoavydlxjv" path="res://main-menu/menu-ui/Settings Button.png" id="3_8teer"]
 [ext_resource type="Texture2D" uid="uid://uu0q8x867xf0" path="res://main-menu/menu-ui/Quit Button.png" id="4_b8jfp"]
 [ext_resource type="AudioStream" uid="uid://bwoa7hp2eawb0" path="res://sound/Backsound-menu.mp3" id="6_d3bow"]
 
@@ -16,43 +15,31 @@ scale = Vector2(0.249817, 0.249349)
 texture = ExtResource("1_yab2c")
 
 [node name="PlayButton" type="Sprite2D" parent="."]
-position = Vector2(158, 300)
+position = Vector2(159, 326)
 scale = Vector2(0.255833, 0.2725)
 texture = ExtResource("2_p0acs")
 
-[node name="SettingsButton" type="Sprite2D" parent="."]
-position = Vector2(158, 390)
-scale = Vector2(0.2475, 0.265)
-texture = ExtResource("3_8teer")
-
 [node name="QuitButton" type="Sprite2D" parent="."]
-position = Vector2(157, 477)
+position = Vector2(160, 422)
 scale = Vector2(0.244583, 0.25875)
 texture = ExtResource("4_b8jfp")
 
 [node name="PlayButton2" type="TextureButton" parent="."]
 offset_left = 83.0
-offset_top = 275.0
+offset_top = 303.0
 offset_right = 233.0
-offset_bottom = 323.0
-
-[node name="SettingsButton2" type="TextureButton" parent="."]
-offset_left = 84.0
-offset_top = 366.0
-offset_right = 234.0
-offset_bottom = 414.0
+offset_bottom = 351.0
 
 [node name="QuitButton2" type="TextureButton" parent="."]
-offset_left = 82.0
-offset_top = 454.0
-offset_right = 232.0
-offset_bottom = 502.0
+offset_left = 85.0
+offset_top = 398.0
+offset_right = 235.0
+offset_bottom = 446.0
 
 [node name="Music_menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_d3bow")
-volume_db = -20.0
+volume_db = -16.0
 bus = &"Music"
 
 [connection signal="pressed" from="PlayButton2" to="." method="_on_play_button_2_pressed"]
-[connection signal="pressed" from="SettingsButton2" to="." method="_on_settings_button_2_pressed"]
 [connection signal="pressed" from="QuitButton2" to="." method="_on_quit_button_2_pressed"]

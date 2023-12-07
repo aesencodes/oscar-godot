@@ -1,5 +1,6 @@
-[gd_scene load_steps=47 format=3 uid="uid://dir3l0tltcbvx"]
+[gd_scene load_steps=48 format=3 uid="uid://dir3l0tltcbvx"]
 
+[ext_resource type="AudioStream" uid="uid://dni1l2rh2n35t" path="res://sound/background-music-3.mp3" id="1_5iuvy"]
 [ext_resource type="Texture2D" uid="uid://dyy4tf8jpfkyf" path="res://assets/tileset/map-1-and-2/tiles/Tiles.png" id="1_6ippm"]
 [ext_resource type="Texture2D" uid="uid://dpfdceb5q34mk" path="res://assets/tileset/map-1-and-2/rocks/Props-Rocks.png" id="3_k84yj"]
 [ext_resource type="Texture2D" uid="uid://c771aq5fl1hwb" path="res://assets/tileset/map-1-and-2/tiles/Tileskebalik.png" id="3_qsldx"]
@@ -39570,6 +39571,11 @@ func _process(delta):
 "
 
 [node name="map-2" type="Node2D"]
+
+[node name="backsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_5iuvy")
+volume_db = -4.0
+autoplay = true
 
 [node name="tiles" type="Node2D" parent="."]
 
