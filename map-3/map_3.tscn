@@ -11860,7 +11860,7 @@ position = Vector2(5181, -290)
 position = Vector2(5412, -509)
 
 [node name="bear" parent="." instance=ExtResource("9_1hxcm")]
-position = Vector2(3279, 331)
+position = Vector2(3280, 343)
 
 [node name="bg-map-3" parent="." instance=ExtResource("15_42mbd")]
 

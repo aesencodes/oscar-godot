@@ -124,6 +124,9 @@ func _physics_process(delta):
 	#print("X: ", position.x)
 	#print("Y: ", position.y)
 	#if current_animation != "death": 
+	if Input.is_action_pressed("ui_cancel"):
+		SceneLoading.load_scene("res://main-menu/main_menu.tscn")
+	
 	if climbing == false:
 		velocity.y += gravity * delta
 	elif climbing == true:
